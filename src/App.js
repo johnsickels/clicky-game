@@ -1,9 +1,10 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import Header from "./components/Header";
 // import Footer from "./components/Footer";
 import Wrapper from "./components/Wrapper";
-import cards from "./cards.json"
+import cards from "./cards.json";
 import Card from "./components/Card";
+import Jumbotron from 'react-bootstrap/Jumbotron';
 
 class App extends React.Component {
     state = {
@@ -47,10 +48,9 @@ class App extends React.Component {
     render() {
         return (
             <div>
-                <Navbar 
-                    score={this.state.score}
-                    highscore={this.state.highscore}
-                />
+                <Jumbotron fluid>
+                    <Header score={this.state.score} highscore={this.state.highscore}>Clicky Game</Header>
+                </Jumbotron>
                 <Wrapper>
                     {this.state.cards.map(card => (
                         <Card
